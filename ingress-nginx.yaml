@@ -18,6 +18,6 @@ spec:
     service:
       type: NodePort
       nodePorts:
-        http: 2080
-        https: 2443
+        http: 32080
+        https: 32443
       externalTrafficPolicy: Local
