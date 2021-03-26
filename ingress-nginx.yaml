@@ -15,9 +15,8 @@ spec:
       kind: DaemonSet
       nodeSelector:
         role: ingress
-    service:
-      type: NodePort
-      nodePorts:
-        http: 32080
-        https: 32443
-      externalTrafficPolicy: Local
+      service:
+        type: NodePort
+        nodePorts:
+          http: 32080
+          https: 32443
