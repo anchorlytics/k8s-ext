@@ -1,0 +1,10 @@
+---
+# apiVersion: v1
+# kind: Secret
+# metadata:
+#   name: cf-api-token
+#   namespace: kube-system
+# type: Opaque
+# stringData:
+#   api-token: PUT_CLOUDFLARE_TOKEN_HERE
+
