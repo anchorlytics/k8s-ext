@@ -1,0 +1,39 @@
+
+---
+apiVersion: helm.cattle.io/v1
+kind: HelmChart
+metadata:
+  name: gitea
+  namespace: kube-system
+spec:
+  repo: "https://dl.gitea.io/charts/"
+  chart: gitea
+  version: 3.1.4
+  targetNamespace: gitea
+  valuesContent: |-
+    gitea:
+      config:
+        APP_NAME: "Anchorlytics Code"
+        server:
+          PPROF_ENABLED: true
+      cache:
+        builtIn:
+          enabled: true
+      metrics:
+        enabled: true
+    persistence:
+      enabled: true
+      size: 20Gi
+    postgresql:
+      persistence:
+        enabled: true
+    ingress:
+      enabled: true
+      hosts:
+      - code.vpn.seanho.com
+      tls:
+      - secretName: gitea-tls
+        hosts:
+        - code.vpn.seanho.com
+      annotations:
+        cert-manager.io/cluster-issuer: le-prod
